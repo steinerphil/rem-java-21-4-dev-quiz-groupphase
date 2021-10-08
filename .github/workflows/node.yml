@@ -1,7 +1,10 @@
 name: Dev Quiz Frontend CI
 
 on:
-  push
+  push:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build-frontend:
