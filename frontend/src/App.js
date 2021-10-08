@@ -1,17 +1,10 @@
+
+import Header from "./components/Header";
+
 function App() {
   return (
     <div className="App">
-      <header>
-        <image name="Logo" alt="logo" />
-        <ul>
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#home">Add Question</a>
-          </li>
-        </ul>
-      </header>
+      <Header/>
       <body>
         <section>
           <div className="question">
