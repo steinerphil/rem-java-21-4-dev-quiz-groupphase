@@ -6,13 +6,12 @@ import AddQuestion from './components/Pages/Add-Question'
 import useQuestions from './hooks/useQuestions'
 
 function App() {
-  const { questions, saveQuestion, getAllQuestions } = useQuestions()
+  const { questions, saveQuestion } = useQuestions()
   return (
     <div className="App">
       <Header />
       <Switch>
         <Route exact path="/">
-          {getAllQuestions()}
           <Homepage questions={questions} />
         </Route>
         <Route exact path="/add-question">
