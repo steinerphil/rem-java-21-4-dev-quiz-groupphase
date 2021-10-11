@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class QuestionService {
@@ -25,4 +27,11 @@ public class QuestionService {
         return questionRepo.addQuestion(newQuestion);
     }
 
+
+    public Optional<Question> get(String id) {
+        if (id == null) {
+            throw new NullPointerException("Id not found!");
+        }
+        return questionRepo.get(id);
+    }
 }

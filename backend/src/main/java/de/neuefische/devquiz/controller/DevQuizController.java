@@ -6,25 +6,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
 public class DevQuizController {
 
-    QuestionService service;
+    QuestionService questionService;
 
     @Autowired
-    public DevQuizController(QuestionService service) {
-        this.service = service;
+    public DevQuizController(QuestionService questionService) {
+        this.questionService = questionService;
     }
 
-    @GetMapping("/question")
-    public List<Question> getAllQuestions(){
-        return service.getAllQuestions();
+    @GetMapping("/api/")
+    public List<Question> listQuestion() {
+        return questionService.getAllQuestions();
     }
 
-    @PostMapping("/question")
-    public Question addQuestion(@RequestBody Question newQuestion){
-        return service.addQuestion(newQuestion);
+    @GetMapping("/api/{id}")
+    public Optional<Question> get(@PathVariable String id) {
+        return questionService.get(id);
+    }
+
+    @PostMapping("/api/")
+    public Question addQuestion(@RequestBody Question newQuestion) {
+        return questionService.addQuestion(newQuestion);
     }
 }

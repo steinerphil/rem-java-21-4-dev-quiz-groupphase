@@ -10,9 +10,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Answer {
-
     private String id = UUID.randomUUID().toString();
     private String answerText;
-    boolean correct;
+    private boolean correct;
 
 }

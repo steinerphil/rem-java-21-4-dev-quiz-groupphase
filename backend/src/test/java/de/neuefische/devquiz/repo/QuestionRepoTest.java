@@ -4,6 +4,7 @@ import de.neuefische.devquiz.model.Question;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -46,9 +47,9 @@ class QuestionRepoTest {
 
 
         // THEN
-        assertEquals(expected1, questionRepo.get("1"));
-        assertEquals(expected2, questionRepo.get("2"));
-        assertEquals(expected3, questionRepo.get("3"));
+        assertEquals(Optional.of(expected1), questionRepo.get("1"));
+        assertEquals(Optional.of(expected2), questionRepo.get("2"));
+        assertEquals(Optional.of(expected3), questionRepo.get("3"));
 
 
     }
@@ -63,6 +64,6 @@ class QuestionRepoTest {
         questionRepo.addQuestion(questionToAdd);
 
         //THEN
-        assertEquals(questionRepo.get("4"), questionToAdd);
+        assertEquals(questionRepo.get("4"), Optional.of(questionToAdd));
     }
 }
