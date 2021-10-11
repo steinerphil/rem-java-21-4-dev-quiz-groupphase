@@ -42,7 +42,7 @@ class DevQuizControllerTest {
         questionRepo.addQuestion(new Question("2", "Question with ID '2'", null));
         questionRepo.addQuestion(new Question("3", "Question with ID '3'", null));
         // WHEN
-        ResponseEntity<Question[]> responseEntity = testRestTemplate.getForEntity("/api/", Question[].class);
+        ResponseEntity<Question[]> responseEntity = testRestTemplate.getForEntity("/api/question", Question[].class);
         // THEN
         assertThat(responseEntity.getStatusCode(), is(HttpStatus.OK));
         assertThat(responseEntity.getBody(), arrayContainingInAnyOrder(
@@ -57,9 +57,10 @@ class DevQuizControllerTest {
     @DisplayName("Should return a question object with the given id")
     void testGet() {
         // GIVEN
-        questionRepo.addQuestion(new Question("302", "Question with ID '302'", null));
+        Question question = new Question("302", "Question with ID '302'", null);
+        questionRepo.addQuestion(question);
         // WHEN
-        ResponseEntity<Question> responseEntity = testRestTemplate.getForEntity("/api/302", Question.class);
+        ResponseEntity<Question> responseEntity = testRestTemplate.getForEntity("/api/question/" + question.getId(), Question.class);
         // THEN
         assertThat(responseEntity.getStatusCode(), is(HttpStatus.OK));
         assertThat(responseEntity.getBody(), is(new Question("302", "Question with ID '302'", null)));
@@ -72,7 +73,7 @@ class DevQuizControllerTest {
         Question questionToAdd = new Question("22", "This is a question", null);
 
         // WHEN
-        ResponseEntity<Question> postResponseEntity = testRestTemplate.postForEntity("/api/", questionToAdd, Question.class);
+        ResponseEntity<Question> postResponseEntity = testRestTemplate.postForEntity("/api/question/", questionToAdd, Question.class);
         Question actual = postResponseEntity.getBody();
 
         // THEN
@@ -81,7 +82,7 @@ class DevQuizControllerTest {
         assertThat(actual, is(new Question("22", "This is a question", null)));
 
         // THEN - check via GET
-        ResponseEntity<Question> getResponse = testRestTemplate.getForEntity("/api/" + questionToAdd.getId(), Question.class);
+        ResponseEntity<Question> getResponse = testRestTemplate.getForEntity("/api/question/" + questionToAdd.getId(), Question.class);
         Question persistedQuestion = getResponse.getBody();
 
         assertNotNull(persistedQuestion);

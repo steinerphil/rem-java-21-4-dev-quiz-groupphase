@@ -18,17 +18,17 @@ public class DevQuizController {
         this.questionService = questionService;
     }
 
-    @GetMapping("/api/")
+    @GetMapping("/api/question")
     public List<Question> listQuestion() {
         return questionService.listQuestions();
     }
 
-    @GetMapping("/api/{id}")
+    @GetMapping("/api/question/{id}")
     public Optional<Question> get(@PathVariable String id) {
         return questionService.get(id);
     }
 
-    @PostMapping("/api/")
+    @PostMapping("/api/question")
     public Question addQuestion(@RequestBody Question newQuestion) {
         return questionService.addQuestion(newQuestion);
     }
