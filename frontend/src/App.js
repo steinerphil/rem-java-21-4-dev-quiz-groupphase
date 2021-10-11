@@ -1,26 +1,17 @@
 import Header from './components/Header'
 import { Route, Switch } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import Homepage from './components/Pages/Homepage'
-import { addQuestion, getQuestions } from './service/DevQuizApiService'
 import AddQuestion from './components/Pages/Add-Question'
+import useQuestions from './hooks/useQuestions'
 
 function App() {
-  const [questions, setQuestions] = useState([])
-
-  useEffect(() => {
-    getQuestions().then(result => setQuestions(result))
-  }, [])
-
-  const saveQuestion = newQuestion => {
-    addQuestion(newQuestion)
-    getQuestions().then(result => setQuestions(result))
-  }
+  const { questions, saveQuestion, getAllQuestions } = useQuestions()
   return (
     <div className="App">
       <Header />
       <Switch>
         <Route exact path="/">
+          {getAllQuestions()}
           <Homepage questions={questions} />
         </Route>
         <Route exact path="/add-question">
