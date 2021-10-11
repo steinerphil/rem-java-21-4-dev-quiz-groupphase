@@ -21,10 +21,6 @@ public class QuestionRepo {
     }
 
     public Question addQuestion(Question newQuestion) {
-        if (newQuestion.getId() == null) {
-            newQuestion.setId(randomId());
-
-    public Question addQuestion(Question newQuestion) {
         //TODO Return List of Questions
         if(newQuestion.getId() == null){
             newQuestion.setId(UUID.randomUUID().toString());

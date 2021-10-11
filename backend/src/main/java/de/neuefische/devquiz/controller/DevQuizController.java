@@ -20,7 +20,7 @@ public class DevQuizController {
 
     @GetMapping("/api/")
     public List<Question> listQuestion() {
-        return questionService.listQuestions();
+        return questionService.getAllQuestions();
     }
 
     @GetMapping("/api/{id}")
