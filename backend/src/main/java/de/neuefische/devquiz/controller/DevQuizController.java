@@ -3,14 +3,12 @@ package de.neuefische.devquiz.controller;
 import de.neuefische.devquiz.model.Question;
 import de.neuefische.devquiz.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class DevQuizController {
 
     QuestionService service;
@@ -20,12 +18,12 @@ public class DevQuizController {
         this.service = service;
     }
 
-    @GetMapping("/api/question")
+    @GetMapping("/question")
     public List<Question> getAllQuestions(){
         return service.getAllQuestions();
     }
 
-    @PostMapping("/api/question")
+    @PostMapping("/question")
     public Question addQuestion(@RequestBody Question newQuestion){
         return service.addQuestion(newQuestion);
     }
