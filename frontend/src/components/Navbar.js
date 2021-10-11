@@ -3,8 +3,8 @@ import styled from 'styled-components'
 function Navbar() {
   return (
     <NavBarContainer>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/add-question">Add Question</NavLink>
+      <NavItem to="/">Home</NavItem>
+      <NavItem to="/add-question">Add Question</NavItem>
     </NavBarContainer>
   )
 }
@@ -14,4 +14,15 @@ const NavBarContainer = styled.section`
   display: flex;
   justify-content: center;
   gap: 40px;
+`
+const NavItem=styled(NavLink)`
+  color: white;
+  &hover{
+    color: #AEC5EB;}
+
+  &visited{
+    color: white;
+    text-decoration: none;
+  }
+  
 `
