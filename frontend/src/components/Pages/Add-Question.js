@@ -50,42 +50,45 @@ export default function AddQuestion({ saveQuestion }) {
     <section>
       <Heading>Add Question Page</Heading>
       <FormContainer>
-      <NewQuestion
-        question={question}
-        answers={question.answers}
-        handleAnswerTextInput={handleAnswerTextInput}
-        handleAnswerCorrectStatusChange={handleAnswerCorrectStatusChange}
-        handleQuestionTextInput={handleQuestionTextInput}
-      />
+        <NewQuestion
+          question={question}
+          answers={question.answers}
+          handleAnswerTextInput={handleAnswerTextInput}
+          handleAnswerCorrectStatusChange={handleAnswerCorrectStatusChange}
+          handleQuestionTextInput={handleQuestionTextInput}
+        />
       </FormContainer>
       <ButtonContainer>
-      <Button onClick={createNewAnswerOption}>Create Answeroption</Button>
-      <Button
-        onClick={() => {
-          saveQuestion(question)
-        }}
-      >
-        Save Question
-      </Button>
+        <Button onClick={createNewAnswerOption}>Create Answeroption</Button>
+        <Button
+          onClick={() => {
+            saveQuestion(question)
+          }}
+        >
+          Save Question
+        </Button>
       </ButtonContainer>
     </section>
   )
 }
 
-const Heading=styled.h2`
+const Heading = styled.h2`
   font-family: 'Montserrat', sans-serif;
   text-align: center;
-  
 `
-const FormContainer=styled.section`
+const FormContainer = styled.section`
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
 `
-const ButtonContainer=styled.section`
- align-content: center;
+const ButtonContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 5px;
+  align-content: center;
 `
-const Button =styled.button`
+const Button = styled.button`
   box-shadow: inset 0px 1px 0px 0px #ffffff;
   background-color: #757780;
   border-radius: 6px;
@@ -108,5 +111,4 @@ const Button =styled.button`
     position: relative;
     top: 1px;
   }
-    
 `
