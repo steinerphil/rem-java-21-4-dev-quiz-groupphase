@@ -25,7 +25,7 @@ class QuestionRepoTest {
         );
 
         // WHEN
-        List<Question> expected = questionRepo.listQuestions();
+        List<Question> expected = questionRepo.getAllQuestions();
 
         // THEN
         assertEquals(expected, actual);

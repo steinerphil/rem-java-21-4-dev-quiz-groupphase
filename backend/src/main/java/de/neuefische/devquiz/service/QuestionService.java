@@ -19,9 +19,14 @@ public class QuestionService {
         this.questionRepo = questionRepo;
     }
 
-    public List<Question> listQuestions() {
-        return questionRepo.listQuestions();
+    public List<Question> getAllQuestions() {
+        return questionRepo.getAllQuestions();
     }
+
+    public Question addQuestion(Question newQuestion){
+        return questionRepo.addQuestion(newQuestion);
+    }
+
 
     public Optional<Question> get(String id) {
         if (id == null) {
@@ -29,9 +34,4 @@ public class QuestionService {
         }
         return questionRepo.get(id);
     }
-
-    public Question addQuestion(Question newQuestion) {
-        return questionRepo.addQuestion(newQuestion);
-    }
-
 }

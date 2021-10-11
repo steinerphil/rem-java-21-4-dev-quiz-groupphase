@@ -1,22 +1,30 @@
+import Header from './components/Header'
+import { Route, Switch } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import Homepage from './components/Pages/Homepage'
+import { getQuestions } from './service/DevQuizApiService'
+import AddQuestion from './components/Pages/Add-Question'
 
 function App() {
+  const [questions, setQuestions] = useState([])
+
+  useEffect(() => {
+    getQuestions().then(result => setQuestions(result))
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <Homepage questions={questions} />
+        </Route>
+        <Route exact path="/add-question">
+          <AddQuestion />
+        </Route>
+      </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
