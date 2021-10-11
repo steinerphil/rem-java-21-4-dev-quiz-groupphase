@@ -17,6 +17,7 @@ const QuestionsContainer = styled.section`
   display: flex;
   gap: 15px;
   justify-content: center;
-  border: 1px solid black;
   flex-wrap: wrap;
+  background-color: #424B54;
+  padding: 50px;
 `
