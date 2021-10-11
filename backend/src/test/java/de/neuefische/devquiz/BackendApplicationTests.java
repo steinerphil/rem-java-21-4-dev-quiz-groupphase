@@ -23,39 +23,4 @@ class BackendApplicationTests {
     @Test
     void contextLoads() {
     }
-//
-//    @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//    class QuestionServiceTest {
-//
-//        @LocalServerPort
-//        private int port;
-//
-//        private String baseUrl = "http://localhost:8080/api";
-//
-//        @Autowired
-//        private TestRestTemplate testRestTemplate;
-//
-//        QuestionRepo questionRepo = Mockito.mock(QuestionRepo.class);
-//
-//        @BeforeEach
-//        public void clear() {
-//            questionRepo.clear();
-//        }
-//
-//        @Test
-//        @DisplayName("returns a list of all existing questions")
-//        void listQuestions() {
-//            // GIVEN
-//            questionRepo.addQuestion(new Question("33", "This is a question with id '33'", null));
-//            questionRepo.addQuestion(new Question("66", "This is a question with id '66'", null));
-//            questionRepo.addQuestion(new Question("99", "This is a question with id '99'", null));
-//
-//            // WHEN
-//            ResponseEntity<Question> responseEntity = testRestTemplate.getForEntity(baseUrl, Question.class);
-//
-//            // THEN
-//            assertThat(responseEntity.getStatusCode(), is(HttpStatus.OK));
-//            assertThat(responseEntity.getBody(), equalToObject(questionRepo.listQuestions()));
-//        }
-
 }
