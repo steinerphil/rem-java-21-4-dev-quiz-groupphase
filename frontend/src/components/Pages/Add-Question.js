@@ -2,8 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { useState } from 'react'
 import NewQuestion from '../NewQuestion'
-
-export default function AddQuestion() {
+export default function AddQuestion({ saveQuestion }) {
   const [question, setQuestions] = useState({
     questionText: '',
     answers: [
@@ -34,14 +33,37 @@ export default function AddQuestion() {
     console.log(newQuestionObject)
     setQuestions(newQuestionObject)
   }
+
+  const createNewAnswerOption = () => {
+    const newQuestionObject = { ...question }
+    newQuestionObject.answers.push({
+      answerText: '',
+      correct: false,
+    })
+    setQuestions(newQuestionObject)
+  }
+
+  const handleQuestionTextInput = e => {
+    setQuestions({ ...question, questionText: e.target.value })
+  }
   return (
     <section>
       <h2>Add Question Page</h2>
       <NewQuestion
+        question={question}
         answers={question.answers}
         handleAnswerTextInput={handleAnswerTextInput}
         handleAnswerCorrectStatusChange={handleAnswerCorrectStatusChange}
+        handleQuestionTextInput={handleQuestionTextInput}
       />
+      <button onClick={createNewAnswerOption}>Create Answeroption</button>
+      <button
+        onClick={() => {
+          saveQuestion(question)
+        }}
+      >
+        Save Question
+      </button>
     </section>
   )
 }

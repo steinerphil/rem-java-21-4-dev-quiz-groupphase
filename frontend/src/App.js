@@ -2,7 +2,7 @@ import Header from './components/Header'
 import { Route, Switch } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Homepage from './components/Pages/Homepage'
-import { getQuestions } from './service/DevQuizApiService'
+import { addQuestion, getQuestions } from './service/DevQuizApiService'
 import AddQuestion from './components/Pages/Add-Question'
 
 function App() {
@@ -12,6 +12,10 @@ function App() {
     getQuestions().then(result => setQuestions(result))
   }, [])
 
+  const saveQuestion = newQuestion => {
+    addQuestion(newQuestion)
+    getQuestions().then(result => setQuestions(result))
+  }
   return (
     <div className="App">
       <Header />
@@ -20,7 +24,7 @@ function App() {
           <Homepage questions={questions} />
         </Route>
         <Route exact path="/add-question">
-          <AddQuestion />
+          <AddQuestion saveQuestion={saveQuestion} />
         </Route>
       </Switch>
     </div>

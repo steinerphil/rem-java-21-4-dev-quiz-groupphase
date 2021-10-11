@@ -6,4 +6,11 @@ function getQuestions() {
     .then(response => response.data)
     .catch(err => console.error(err))
 }
-export { getQuestions }
+
+function addQuestion(newQuestion) {
+  return axios
+    .post('/api/question', newQuestion)
+    .then(response => response.data)
+    .catch(console.error)
+}
+export { getQuestions, addQuestion }
