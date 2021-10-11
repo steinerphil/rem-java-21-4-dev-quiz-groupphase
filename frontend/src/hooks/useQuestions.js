@@ -14,7 +14,6 @@ export default function useQuestions() {
 
   const saveQuestion = newQuestion => {
     addQuestion(newQuestion)
-    getAllQuestions()
   }
   return {
     getAllQuestions,

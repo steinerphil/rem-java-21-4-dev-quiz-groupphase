@@ -11,7 +11,7 @@ import java.util.Optional;
 @RestController
 public class DevQuizController {
 
-    QuestionService questionService;
+    private final QuestionService questionService;
 
     @Autowired
     public DevQuizController(QuestionService questionService) {
