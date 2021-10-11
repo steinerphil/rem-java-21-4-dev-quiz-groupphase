@@ -48,7 +48,8 @@ export default function AddQuestion({ saveQuestion }) {
   }
   return (
     <section>
-      <h2>Add Question Page</h2>
+      <Heading>Add Question Page</Heading>
+      <FormContainer>
       <NewQuestion
         question={question}
         answers={question.answers}
@@ -56,14 +57,56 @@ export default function AddQuestion({ saveQuestion }) {
         handleAnswerCorrectStatusChange={handleAnswerCorrectStatusChange}
         handleQuestionTextInput={handleQuestionTextInput}
       />
-      <button onClick={createNewAnswerOption}>Create Answeroption</button>
-      <button
+      </FormContainer>
+      <ButtonContainer>
+      <Button onClick={createNewAnswerOption}>Create Answeroption</Button>
+      <Button
         onClick={() => {
           saveQuestion(question)
         }}
       >
         Save Question
-      </button>
+      </Button>
+      </ButtonContainer>
     </section>
   )
 }
+
+const Heading=styled.h2`
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  
+`
+const FormContainer=styled.section`
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+`
+const ButtonContainer=styled.section`
+ align-content: center;
+`
+const Button =styled.button`
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background-color: #757780;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+
+  &:hover {
+    background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    background-color: #dfdfdf;
+    color: #757780;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+    
+`
