@@ -20,7 +20,6 @@ export default function AddQuestion({ saveQuestion }) {
   const handleAnswerTextInput = (e, index) => {
     const newQuestionObject = { ...question }
     newQuestionObject.answers[index].answerText = e.target.value
-
     setQuestions(newQuestionObject)
   }
 
@@ -30,7 +29,7 @@ export default function AddQuestion({ saveQuestion }) {
     for (let i = 0; i < newQuestionObject.answers.length; i++) {
       newQuestionObject.answers[i].correct = i === index
     }
-    console.log(newQuestionObject)
+
     setQuestions(newQuestionObject)
   }
 
@@ -46,6 +45,7 @@ export default function AddQuestion({ saveQuestion }) {
   const handleQuestionTextInput = e => {
     setQuestions({ ...question, questionText: e.target.value })
   }
+
   return (
     <section>
       <Heading>Add Question Page</Heading>

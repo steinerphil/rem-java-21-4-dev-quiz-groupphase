@@ -25,7 +25,6 @@ public class QuestionRepo {
         //TODO Set Answer ID´s before saving the question
         if(newQuestion.getId() == null){
             newQuestion.setId(UUID.randomUUID().toString());
-
         }
         questions.put(newQuestion.getId(), newQuestion);
         return newQuestion;

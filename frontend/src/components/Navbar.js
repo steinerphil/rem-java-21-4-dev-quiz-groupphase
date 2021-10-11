@@ -15,14 +15,14 @@ const NavBarContainer = styled.section`
   justify-content: center;
   gap: 40px;
 `
-const NavItem=styled(NavLink)`
+const NavItem = styled(NavLink)`
   color: white;
-  &hover{
-    color: #AEC5EB;}
+  &hover {
+    color: #aec5eb;
+  }
 
-  &visited{
+  &visited {
     color: white;
     text-decoration: none;
   }
-  
 `
