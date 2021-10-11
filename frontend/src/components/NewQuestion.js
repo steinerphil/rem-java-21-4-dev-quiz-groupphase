@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useState } from 'react'
 
 export default function NewQuestion({
   answers,
@@ -19,7 +18,7 @@ export default function NewQuestion({
       />
       <section>
         {answers.map((answer, index) => (
-          <section>
+          <section key={index}>
             <p>Answer {index + 1}</p>
             <input
               onChange={e => {
