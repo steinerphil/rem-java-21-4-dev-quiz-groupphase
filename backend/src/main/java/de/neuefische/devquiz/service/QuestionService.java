@@ -17,11 +17,12 @@ public class QuestionService {
         this.questionRepo = questionRepo;
     }
 
-    public List<Question> listQuestions() {
-        return questionRepo.listQuestions();
+    public List<Question> getAllQuestions() {
+        return questionRepo.getAllQuestions();
     }
 
-//    public Question addQuestion() {
-//
-//    }
+    public Question addQuestion(Question newQuestion){
+        return questionRepo.addQuestion(newQuestion);
+    }
+
 }
