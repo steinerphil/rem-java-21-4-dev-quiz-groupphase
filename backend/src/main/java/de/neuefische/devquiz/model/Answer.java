@@ -13,6 +13,6 @@ import java.util.UUID;
 public class Answer {
     private String id;
     private String answerText;
-    private boolean correct;
+    private Boolean isCorrect;
 
 }
