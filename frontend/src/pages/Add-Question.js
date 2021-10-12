@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { useState } from 'react'
-import NewQuestion from '../NewQuestion'
+import NewQuestion from '../components/NewQuestion'
 export default function AddQuestion({ saveQuestion }) {
   const [question, setQuestions] = useState({
     questionText: '',

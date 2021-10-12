@@ -1,8 +1,8 @@
 import Header from './components/Header'
 import './App.css'
 import { Route, Switch } from 'react-router-dom'
-import Homepage from './components/Pages/Homepage'
-import AddQuestion from './components/Pages/Add-Question'
+import Homepage from './pages/Homepage'
+import AddQuestion from './pages/Add-Question'
 import useQuestions from './hooks/useQuestions'
 
 function App() {

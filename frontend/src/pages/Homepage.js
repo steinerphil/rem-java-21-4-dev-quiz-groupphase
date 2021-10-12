@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Question from '../Question'
+import Question from '../components/Question'
 import styled from 'styled-components'
 
 function Homepage({ questions }) {
