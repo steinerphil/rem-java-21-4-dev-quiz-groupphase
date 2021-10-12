@@ -24,7 +24,7 @@ public class QuestionRepo {
 
 
     public Optional<Question> get(String id) {
-        return Optional.of(questions.get(id));
+        return Optional.ofNullable(questions.get(id));
     }
 
     public Question addQuestion(Question newQuestion) {

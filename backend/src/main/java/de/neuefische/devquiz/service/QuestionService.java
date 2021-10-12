@@ -32,7 +32,7 @@ public class QuestionService {
         Optional<Question> optionalQuestion = questionRepo.get(id);
 
         if (optionalQuestion.isEmpty()) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("Question with id:" + id + " not found!");
         }
 
         return optionalQuestion.get();
