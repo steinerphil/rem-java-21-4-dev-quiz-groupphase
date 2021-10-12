@@ -28,10 +28,13 @@ public class QuestionService {
     }
 
 
-    public Optional<Question> get(String id) {
-        if (id == null) {
-            throw new NullPointerException("Id not found!");
+    public Question get(String id) {
+        Optional<Question> optionalQuestion = questionRepo.get(id);
+
+        if (optionalQuestion.isEmpty()) {
+            throw new NoSuchElementException();
         }
-        return questionRepo.get(id);
+
+        return optionalQuestion.get();
     }
 }
