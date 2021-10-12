@@ -23,7 +23,7 @@ export default function AddQuestion({ saveQuestion }) {
     setQuestions(newQuestionObject)
   }
 
-  const handleAnswerCorrectStatusChange = (e, index) => {
+  const handleAnswerCorrectStatusChange = (index) => {
     const newQuestionObject = { ...question }
 
     for (let i = 0; i < newQuestionObject.answers.length; i++) {
@@ -89,7 +89,7 @@ const ButtonContainer = styled.section`
   align-content: center;
 `
 const Button = styled.button`
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0 1px 0 0 #ffffff;
   background-color: #757780;
   border-radius: 6px;
   border: 1px solid #dcdcdc;

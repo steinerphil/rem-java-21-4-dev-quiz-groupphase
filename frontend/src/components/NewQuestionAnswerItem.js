@@ -16,9 +16,7 @@ export default function NewQuestionAnswerItem({answer, index, handleAnswerTextIn
                 type="radio"
                 name={'new-question'}
                 checked={answer.correct}
-                onChange={e => {
-                    handleAnswerCorrectStatusChange(e, index)
-                }}
+                onChange={() => handleAnswerCorrectStatusChange(index)}
             />
         </section>
     )
