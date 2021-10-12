@@ -1,4 +1,4 @@
-import { addQuestion, getQuestions } from '../service/DevQuizApiService'
+import { addQuestion, getQuestions } from '../service/devQuizApiService'
 import { useEffect, useState } from 'react'
 
 export default function useQuestions() {
