@@ -13,7 +13,7 @@ export default function useQuestions() {
   }, [])
 
   const saveQuestion = newQuestion => {
-    addQuestion(newQuestion)
+    addQuestion(newQuestion).then(getAllQuestions)
   }
   return {
     getAllQuestions,
