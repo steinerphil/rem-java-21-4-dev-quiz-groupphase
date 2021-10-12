@@ -1,4 +1,5 @@
 import * as React from 'react'
+import NewQuestionAnswerItem from "./NewQuestionAnswerItem";
 
 export default function NewQuestion({
   answers,
@@ -18,25 +19,10 @@ export default function NewQuestion({
       />
       <section>
         {answers.map((answer, index) => (
-          <section key={index}>
-            <p>Answer {index + 1}</p>
-            <input
-              onChange={e => {
-                handleAnswerTextInput(e, index)
-              }}
-              className="answer-1-text"
-              value={answer.answerText}
-            />
-            <p>Is Correct?</p>
-            <input
-              type="radio"
-              name={'new-question'}
-              checked={answer.correct}
-              onChange={e => {
-                handleAnswerCorrectStatusChange(e, index)
-              }}
-            />
-          </section>
+          <NewQuestionAnswerItem answer={answer}
+                                 index={index}
+                                 handleAnswerTextInput={handleAnswerTextInput}
+                                 handleAnswerCorrectStatusChange={handleAnswerCorrectStatusChange}/>
         ))}
       </section>
     </form>
