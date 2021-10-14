@@ -30,7 +30,6 @@ public class QuestionService {
         return questionRepo.save(newQuestion);
     }
 
-
     public Question get(String id) {
         Optional<Question> optionalQuestion = questionRepo.findById(id);
 

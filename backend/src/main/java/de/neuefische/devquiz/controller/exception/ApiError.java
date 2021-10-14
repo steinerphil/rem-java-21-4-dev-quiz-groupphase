@@ -17,5 +17,6 @@ public class ApiError {
     public ApiError(String text, String exceptionMessage) {
         this.text = text;
         this.exceptionMessage = exceptionMessage;
+        this.dateTime = LocalDateTime.now();
     }
 }
