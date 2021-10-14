@@ -1,4 +1,6 @@
-name: Deploy to Heroku
+
+name: Deploy QuizApp to Heroku
+
 on:
   push:
     branches:
@@ -12,15 +14,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      -name: Build-Frontend
+      - name: Build Frontend
         run: |
           cd frontend
           npm install
-          npm run bulid
-        - uses: actions/upload-artifact@v2
-          with:
-            name: frontend-build
-            path: frontend/build/
+          npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: frontend-build
+          path: frontend/build/
 
 
   build-backend:
@@ -66,6 +68,6 @@ jobs:
       - name: Login to Heroku
         run: heroku container:login
       - name: Push Docker Container
-        run: heroku container:push web -a (heroku container name hier)
+        run: heroku container:push web -a quizator
       - name: Deploy heroku container
-        run: heroku container:release web -a (heroku container name hier)
+        run: heroku container:release web -a quizator
